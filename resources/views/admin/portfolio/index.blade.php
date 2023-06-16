@@ -57,6 +57,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {!! $portfolios->links('pagination::bootstrap-5') !!}
                             </div>
                         </div>
                     </div>

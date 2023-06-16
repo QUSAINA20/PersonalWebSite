@@ -10,7 +10,7 @@ class PortfolioController extends Controller
 {
     public function index()
     {
-        $portfolios = Portfolio::all();
+        $portfolios = Portfolio::orderBy('created_at', 'desc')->get();
         if ($portfolios->isEmpty()) {
             return response()->json(['message' => 'No portfolios', 'portfolios' => []]);
         }

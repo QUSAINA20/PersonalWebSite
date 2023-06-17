@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        \App\Models\Specilizion::factory(20)->create();
          User::factory()->create([
             'name' => 'Admin',
             'email' => 'admin@material.com',

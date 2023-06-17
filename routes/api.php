@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\SpecializationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/specials',[SpecializationController::class,'index']);
+Route::get('/special/{id}',[SpecializationController::class,'show']);
+Route::post('/specials',[SpecializationController::class,'store']);
+Route::post('/special/{id}',[SpecializationController::class,'update']);
+Route::post('/special_d/{id}',[SpecializationController::class,'destory']);

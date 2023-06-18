@@ -18,21 +18,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-
-       
-        \App\Models\Specilizion::factory(20)->create();
-
          User::factory()->create([
              'name' => 'Admin',
              'email' => 'admin@material.com',
              'password' => ('secret')
          ]);
         Portfolio::factory(5)->create();
-
         Experience::factory(7)->create();
 
         $this->call(BiographySeeder::class);
-
-
+        $this->call(SpecializationSeeder::class);
     }
 }

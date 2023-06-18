@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Portfolio;
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Experience;
 
 
 class DatabaseSeeder extends Seeder
@@ -22,5 +23,6 @@ class DatabaseSeeder extends Seeder
         //     'password' => ('secret')
         // ]);
         Portfolio::factory(5)->create();
+        Experience::factory(7)->create();
     }
 }

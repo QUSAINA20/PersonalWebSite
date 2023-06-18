@@ -22,10 +22,22 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\ExperienceController;
 
 Route::prefix('admin')->group(function () {
     Route::resource('portfolio', PortfolioController::class);
+
+ /****************************** Experience Route **************************************/
+    Route::get('experience/softDelete/{id}' , [ExperienceController::class , 'SoftDelete'])->name('experience.softDelete');
+    Route::get('experience/trash' , [ExperienceController::class , 'trashExperiences'])->name('experience.trash');
+    Route::get('experience/trash/restore/{id}' , [ExperienceController::class , 'restore'])->name('experience.restore');
+    Route::get('experience/forceDelete/{id}' , [ExperienceController::class , 'forceDelete'])->name('experience.forceDelete');
+
+    Route::resource('experience', ExperienceController::class);
+
 });
+
+
 Route::get('/', function () {
     return redirect('sign-in');
 })->middleware('guest');

@@ -36,9 +36,15 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('experience/trash/restore/{id}', [ExperienceController::class, 'restore'])->name('experience.restore');
     Route::get('experience/forceDelete/{id}', [ExperienceController::class, 'forceDelete'])->name('experience.forceDelete');
 
+
+    
+
+
     Route::resource('portfolio', PortfolioController::class);
     Route::resource('biography', BiographyController::class);
+
     Route::resource('specialization', SpecializationController::class);
+
 
     Route::get('messages', [MessageController::class, 'index'])->name('message.index');
     Route::get('messages/{message}', [MessageController::class, 'show'])->name('message.show');

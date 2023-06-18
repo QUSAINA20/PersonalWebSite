@@ -2,24 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Specilizion;
+use App\Models\Specialization;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class SpecializationController extends Controller
 {
-
-    //********* get all speciliztion *********//
     public function index()
     {
-      $specils = Specilizion::all();
-
-      return view('admin.specialization.index', compact( 'specils'));
+        $specializations = Specialization::query()->get();
+        return view('admin.specialization.index', compact("specializations"));
     }
-
-
-
-    //********* create new speciliztion *********//
 
     public function create()
     {
@@ -28,50 +20,48 @@ class SpecializationController extends Controller
 
     public function store(Request $request)
     {
-      $request->validate(
-      [
-        'title'    => 'required|min:2|max:30|string',
-        'body' => 'required|min:2|max:250|string',
-      ]);
-
-      Specilizion::create(
-      [
-        'title'    => $request->input('title'),
-        'body' => $request->input('body'),
-    ]);
-    return redirect()->route('specials.index')
-    ->with('success', 'Specials created successfully.');
-    // compact("id")
-    }
-
-    //********* update specilizion by id *********//
-    public function update(Request $request,$id){
-
-        DB::table('specilizions')->where('id',$id)->update([
-            'title' =>$request->title,
-            'body' => $request->body
+        $validation = $request->validate([
+            'title' => 'required|string',
+            'body' => 'required|string',
         ]);
 
-                return redirect()->route('specials.index')
-                ->with('success', 'Specials updated successfully.');
-        }
-  public function show($id){
-    $specil = Specilizion::findorFail($id);
-    return view('admin.specialization.show', compact('specil'));
-  }
+        $specialization = Specialization::create($validation);
 
-    public function edit( $id)
-{
-    $specil = Specilizion::findorFail($id);
-    return view('admin.specialization.edit', compact('specil'));
-}
-
-
-    //********* delete specilizion by id *********//
-    public function destroy($id)
-    {
-       return redirect()->back()->with('status', Specilizion::find($id)->delete() ? "تم الحذف بنجاح" : 'يبدو أن هناك مشكلة');
+        return redirect()->route('specialization.show', compact("specialization"))
+            ->with('success', 'Specialization created successfully.');
     }
 
-}
+    public function show(Specialization $specialization)
+    {
+        return view('admin.specialization.show', compact('specialization'));
+    }
 
+    public function edit(Specialization $specialization)
+    {
+        return view('admin.specialization.edit', compact('specialization'));
+    }
+
+    public function update(Request $request, Specialization $specialization)
+    {
+        $request->validate([
+            'body' => 'string',
+            'title' => 'string',
+        ]);
+
+        $specialization->title = $request->input('title');
+        $specialization->body = $request->input('body');
+
+        $specialization->save();
+
+        return redirect()->route('specialization.index')
+            ->with('success', 'Specialization updated successfully.');
+    }
+
+    public function destroy(Specialization $specialization)
+    {
+        $specialization->delete();
+
+        return redirect()->route('specialization.index')
+            ->with('success', 'Specialization deleted successfully.');
+    }
+}

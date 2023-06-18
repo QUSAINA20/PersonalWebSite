@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Biography;
+use App\Models\Client;
 use App\Models\Portfolio;
 use Illuminate\Database\Seeder;
 use App\Models\User;
@@ -19,7 +20,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-       
+
         \App\Models\Specilizion::factory(20)->create();
 
          User::factory()->create([
@@ -31,8 +32,8 @@ class DatabaseSeeder extends Seeder
 
         Experience::factory(7)->create();
 
-        $this->call(BiographySeeder::class);
+         $this->call(BiographySeeder::class);
 
-
+         Client::factory(7)->create();
     }
 }

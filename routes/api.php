@@ -3,7 +3,7 @@
 use App\Http\Controllers\Api\MessageController;
 
 use App\Http\Controllers\Api\BiographyController;
-
+use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\PortfolioController;
 use App\Http\Controllers\Api\ExperienceController;
 use Illuminate\Http\Request;
@@ -33,3 +33,4 @@ Route::get('biographies', [BiographyController::class, 'index']);
 
 Route::post('send-message', [MessageController::class, 'store']);
 
+Route::get('clients', [ClientController::class, 'index']);

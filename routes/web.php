@@ -28,12 +28,10 @@ use App\Http\Controllers\SpecializationController;
 use App\Http\Controllers\ExperienceController;
 
 use App\Http\Controllers\BiographyController;
+use App\Http\Controllers\ClientController;
 
-
-
-=======
-
-
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::resource('portfolio', PortfolioController::class);
  /****************************** Experience Route **************************************/
     Route::get('experience/softDelete/{id}' , [ExperienceController::class , 'SoftDelete'])->name('experience.softDelete');
     Route::get('experience/trash' , [ExperienceController::class , 'trashExperiences'])->name('experience.trash');
@@ -42,9 +40,10 @@ use App\Http\Controllers\BiographyController;
 
     Route::resource('experience', ExperienceController::class);
 
+    Route::resource('clients', ClientController::class);
 
     Route::resource('biography', BiographyController::class);
-  
+
     Route::resource('specials', SpecializationController::class);
 
 
@@ -53,6 +52,7 @@ use App\Http\Controllers\BiographyController;
     Route::get('messages-search', [MessageController::class, 'index'])->name('message.index');
 
 });
+
 
 
 Route::get('/', function () {

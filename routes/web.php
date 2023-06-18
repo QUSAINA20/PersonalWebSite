@@ -25,13 +25,36 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\SpecializationController;
 
-Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::resource('portfolio', PortfolioController::class);
+use App\Http\Controllers\ExperienceController;
+
+use App\Http\Controllers\BiographyController;
+
+
+
+=======
+
+
+ /****************************** Experience Route **************************************/
+    Route::get('experience/softDelete/{id}' , [ExperienceController::class , 'SoftDelete'])->name('experience.softDelete');
+    Route::get('experience/trash' , [ExperienceController::class , 'trashExperiences'])->name('experience.trash');
+    Route::get('experience/trash/restore/{id}' , [ExperienceController::class , 'restore'])->name('experience.restore');
+    Route::get('experience/forceDelete/{id}' , [ExperienceController::class , 'forceDelete'])->name('experience.forceDelete');
+
+    Route::resource('experience', ExperienceController::class);
+
+
+    Route::resource('biography', BiographyController::class);
+  
     Route::resource('specials', SpecializationController::class);
+
+
     Route::get('messages/{message}', [MessageController::class, 'show'])->name('message.show');
     Route::get('messages', [MessageController::class, 'index'])->name('message.search');
     Route::get('messages-search', [MessageController::class, 'index'])->name('message.index');
+
 });
+
+
 Route::get('/', function () {
     return redirect('sign-in');
 })->middleware('guest');

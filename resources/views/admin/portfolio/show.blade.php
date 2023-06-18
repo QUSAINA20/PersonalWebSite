@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-body px-4 pt-2">
                             <p><strong>Name:</strong> {{ $portfolio->name }}</p>
-                            <p><strong>Section:</strong> {{ $portfolio->section }}</p>
+                            <p><strong>Section:</strong> {{ ucwords(str_replace('-', ' ', $portfolio->section)) }}</p>
                             <p><strong>Link:</strong> {{ $portfolio->link }}</p>
                             <a target=".blank" href="{{ $portfolio->link }}"
                                 class="btn bg-gradient-primary mt-3 mb-0">Read more</a>

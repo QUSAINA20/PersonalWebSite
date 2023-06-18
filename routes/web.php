@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AchievementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,8 @@ use App\Http\Controllers\BiographyController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('experience', ExperienceController::class);
+    
+    Route::resource('achievement', AchievementController::class);
 
     Route::get('experience/softDelete/{id}', [ExperienceController::class, 'SoftDelete'])->name('experience.softDelete');
     Route::get('experience/trash', [ExperienceController::class, 'trashExperiences'])->name('experience.trash');

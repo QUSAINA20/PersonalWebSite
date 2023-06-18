@@ -24,7 +24,7 @@
 
                             <div class="mb-3">
                                 <label class="form-label">Date</label>
-                                <input type="text" name="date" class="form-control border border-2 p-2" value="{{ old('date') }}" placeholder="dd/mm/YYYY">
+                                <input type="date" name="date" class="form-control border border-2 p-2" value="{{ old('date') }}" placeholder="dd/mm/YYYY">
                                 @error('date')
                                 <p class="text-danger inputerror">{{ $message }}</p>
                                 @enderror

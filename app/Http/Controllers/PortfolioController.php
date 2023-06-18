@@ -91,7 +91,7 @@ class PortfolioController extends Controller
         ]);
 
         $portfolio->name = $request->input('name');
-        $portfolio->section = $request->input('section');
+        $portfolio->section = $requesh->input('section');
         $portfolio->link = $request->input('link');
 
         if ($request->hasFile('image')) {

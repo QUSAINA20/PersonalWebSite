@@ -25,7 +25,7 @@ class ExperienceUpdate extends FormRequest
     {
         return [
             'title'    =>'string|min:5|max:150' ,
-            'date'     =>'string|date_format:d/m/Y',
+            'date'     =>'string',
             'content'  =>'string|between:30,600'
         ];
     }

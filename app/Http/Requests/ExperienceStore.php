@@ -25,7 +25,7 @@ class ExperienceStore extends FormRequest
     {
         return [
             'title'    =>'required|string|min:5|max:150' ,
-            'date'     =>'required|date_format:d/m/Y',
+            'date'     =>'required',
             'content'  =>'required|string|between:30,600'
         ];
     }

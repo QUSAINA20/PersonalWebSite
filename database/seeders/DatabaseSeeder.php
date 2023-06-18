@@ -18,6 +18,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+
+       
+        \App\Models\Specilizion::factory(20)->create();
+
          User::factory()->create([
              'name' => 'Admin',
              'email' => 'admin@material.com',
@@ -28,6 +32,7 @@ class DatabaseSeeder extends Seeder
         Experience::factory(7)->create();
 
         $this->call(BiographySeeder::class);
+
 
     }
 }

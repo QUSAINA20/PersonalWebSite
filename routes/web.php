@@ -23,14 +23,15 @@ use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\SpecializationController;
 
 use App\Http\Controllers\ExperienceController;
 
 use App\Http\Controllers\BiographyController;
 
 
-Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::resource('portfolio', PortfolioController::class);
+
+=======
 
 
  /****************************** Experience Route **************************************/
@@ -43,6 +44,9 @@ Route::prefix('admin')->middleware('auth')->group(function () {
 
 
     Route::resource('biography', BiographyController::class);
+  
+    Route::resource('specials', SpecializationController::class);
+
 
     Route::get('messages/{message}', [MessageController::class, 'show'])->name('message.show');
     Route::get('messages', [MessageController::class, 'index'])->name('message.search');

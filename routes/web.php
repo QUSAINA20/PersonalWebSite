@@ -18,15 +18,18 @@ Route::get('/', function () {
 });
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\BiographyController;
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('portfolio', PortfolioController::class);
+
     Route::resource('biography', BiographyController::class);
+
     Route::get('messages/{message}', [MessageController::class, 'show'])->name('message.show');
     Route::get('messages', [MessageController::class, 'index'])->name('message.search');
     Route::get('messages-search', [MessageController::class, 'index'])->name('message.index');

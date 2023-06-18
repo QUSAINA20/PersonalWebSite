@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AchievementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -40,6 +41,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::get('experience/forceDelete/{id}' , [ExperienceController::class , 'forceDelete'])->name('experience.forceDelete');
 
     Route::resource('experience', ExperienceController::class);
+    
+    Route::resource('achievement', AchievementController::class);
 
 
     Route::resource('biography', BiographyController::class);

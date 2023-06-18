@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Api\AchievementController;
 use App\Http\Controllers\Api\MessageController;
 
 use App\Http\Controllers\Api\BiographyController;
@@ -33,3 +34,4 @@ Route::get('biographies', [BiographyController::class, 'index']);
 
 Route::post('send-message', [MessageController::class, 'store']);
 
+Route::get('achievements', [AchievementController::class, 'index']);

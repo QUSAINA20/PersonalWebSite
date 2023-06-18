@@ -40,7 +40,8 @@ class SpecializationController extends Controller
         'body' => $request->input('body'),
     ]);
     return redirect()->route('specials.index')
-    ->with('success', 'Specials updated successfully.');
+    ->with('success', 'Specials created successfully.');
+    // compact("id")
     }
 
     //********* update specilizion by id *********//
@@ -54,7 +55,10 @@ class SpecializationController extends Controller
                 return redirect()->route('specials.index')
                 ->with('success', 'Specials updated successfully.');
         }
-//   public function show($id){}
+  public function show($id){
+    $specil = Specilizion::findorFail($id);
+    return view('admin.specialization.show', compact('specil'));
+  }
 
     public function edit( $id)
 {

@@ -81,8 +81,10 @@
                                             </td>
                                             <td class="align-middle">
                                             <div class="d-flex">
+                                                <a href="{{ route('specials.show', $specl->id) }}"
+                                                class="btn btn-success  me-2">View</a>
                                                 <a href="{{ route('specials.edit', $specl->id) }}"
-                                                    class="btn btn-success me-2">Edit</a>
+                                                    class="btn btn-info me-2">Edit</a>
                                                 <form action="{{ route('specials.destroy', $specl->id) }}"
                                                     method="POST" class="d-inline">
                                                     @csrf

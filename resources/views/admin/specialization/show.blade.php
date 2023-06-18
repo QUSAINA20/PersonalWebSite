@@ -9,11 +9,10 @@
             <div class="row justify-content-center mt-4">
                 <div class="col-lg-6">
                         <div class="card-body px-4 pt-2">
-                            <p><strong>Title:</strong> {{ $specl->title }}</p>
-                            <p><strong>Section:</strong> {{ $specl->body }}</p> 
+                            <p><strong>Title:</strong> {{ $specil->title }}</p>
+                            <p><strong>Body:</strong> {{ $specil->body }}</p>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>

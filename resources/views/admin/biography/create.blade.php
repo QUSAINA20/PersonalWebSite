@@ -1,3 +1,4 @@
+
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
 
     <x-navbars.sidebar activePage="biography"></x-navbars.sidebar>
@@ -13,8 +14,8 @@
                             @csrf
                             <div class="mb-3">
                                 <label class="form-label">Body</label>
-                                <input type="text" name="body" class="form-control border border-2 p-2"
-                                    value="{{ old('body') }}">
+                                <textarea type="text" name="body" class="form-control border border-2 p-2"
+                                          id="body-texterea">{{ $biography->body }}</textarea>
                                 @error('body')
                                     <p class="text-danger inputerror">{{ $message }}</p>
                                 @enderror

@@ -14,8 +14,8 @@
                             @method('PUT')
                             <div class="mb-3">
                                 <label class="form-label">Body</label>
-                                <input type="text" name="body" class="form-control border border-2 p-2"
-                                    value="{{ $biography->name }}">
+                                <textarea type="text" name="body" class="form-control border border-2 p-2"
+                                          id="body-texterea">{{ $biography->body }}</textarea>
                                 @error('body')
                                     <p class="text-danger inputerror">{{ $message }}</p>
                                 @enderror

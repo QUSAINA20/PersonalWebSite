@@ -10,17 +10,18 @@ class BiographyController extends Controller
 {
     public function index()
     {
-        $biographies = Biography::query()->orderBy('created_at', 'desc')->get();
-        if ($biographies->isEmpty()) {
+        // return only the last added bio
+        $biography = Biography::query()->orderBy('created_at', 'desc')->first();
+        if (!$biography) {
             return response()->json([
                 'message' => 'No biographies.',
-                'biographies' => $biographies
+                'biography' => $biography
             ]);
         }
 
         return response()->json([
-            'message' => 'Biographies retrieved successfully.',
-            'biographies' => $biographies
+            'message' => 'Biography retrieved successfully.',
+            'biography' => $biography
         ]);
     }
 }

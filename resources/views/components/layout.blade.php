@@ -61,5 +61,14 @@
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
 <script src="{{ asset('assets') }}/js/material-dashboard.min.js?v=3.0.0"></script>
+<script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#body-texterea' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+
 </body>
 </html>

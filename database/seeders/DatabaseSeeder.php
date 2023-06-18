@@ -25,9 +25,14 @@ class DatabaseSeeder extends Seeder
             'password' => ('secret')
         ]);
         Portfolio::factory(5)->create();
+
         Achievement::factory(5)->create();
         Experience::factory(7)->create();
 
         $this->call(BiographySeeder::class);
+
+       
+        $this->call(SpecializationSeeder::class);
+
     }
 }

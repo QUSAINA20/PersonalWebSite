@@ -64,7 +64,15 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/38.0.1/classic/ckeditor.js"></script>
 <script>
     ClassicEditor
-        .create( document.querySelector( '#body-texterea' ) )
+        // .create( document.querySelector( '#body-texterea'))
+        .create( document.querySelector( '#body-texterea'), {
+            features: [
+                // Disable some features
+                image => false,
+                script => false,
+    // ...and all other features
+    ]
+    } )
         .catch( error => {
             console.error( error );
         } );

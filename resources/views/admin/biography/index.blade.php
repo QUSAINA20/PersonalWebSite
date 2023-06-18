@@ -30,7 +30,7 @@
                                     <tbody>
                                     @foreach ($biographies as $biography)
                                         <tr>
-                                            <td>{{ $biography->body }}</td>
+                                            <td>{!! $biography->body !!}</td>
                                             <td>
                                                 <div class="d-flex">
                                                     <a href="{{ route('biography.show', $biography) }}"

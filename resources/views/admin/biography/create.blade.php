@@ -15,7 +15,7 @@
                             <div class="mb-3">
                                 <label class="form-label">Body</label>
                                 <textarea type="text" name="body" class="form-control border border-2 p-2"
-                                          id="body-texterea">{{ $biography->body }}</textarea>
+                                          id="body-texterea"></textarea>
                                 @error('body')
                                     <p class="text-danger inputerror">{{ $message }}</p>
                                 @enderror

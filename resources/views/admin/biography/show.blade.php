@@ -17,7 +17,7 @@
                             </div>
                         </div>
                         <div class="card-body px-4 pt-2">
-                            <p><strong>Body:</strong> {{ $biography->body }}</p>
+                            <p><strong>Body:</strong> {!! $biography->body !!}</p>
                         </div>
                     </div>
                 </div>

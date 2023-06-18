@@ -1,9 +1,7 @@
-
 @props(['activePage'])
 
 <aside
     class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 bg-gradient-dark"
-
     id="sidenav-main">
     <div class="sidenav-header">
         <i class="fas fa-times p-3 cursor-pointer text-white opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
@@ -39,8 +37,6 @@
 
                 <a class="nav-link text-white {{ $activePage == 'user-management' ? 'active bg-gradient-primary' : '' }}"
                     href="{{ route('user-management') }}">
-
-
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i style="font-size: 1rem;" class="fas fa-lg fa-list-ul ps-2 pe-2 text-center"></i>
                     </div>
@@ -129,7 +125,7 @@
                 <a class="nav-link text-white {{ $activePage == 'achievement' ? ' active bg-gradient-primary' : '' }}  "
                     href="{{ route('achievement.index') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-                        <i class="material-icons opacity-10">work</i>
+                        <i class="material-icons opacity-10">emoji_events</i>
                     </div>
                     <span class="nav-link-text ms-1">achievement</span>
                 </a>
@@ -138,8 +134,6 @@
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'experience' ? ' active bg-gradient-primary' : '' }}  "
                     href="{{ route('experience.index') }}">
-
-
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">content_copy</i>
                     </div>
@@ -149,8 +143,6 @@
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'biography' ? 'active bg-gradient-primary' : '' }}"
                     href="{{ route('biography.index') }}">
-
-
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">book</i>
                     </div>
@@ -170,19 +162,24 @@
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'message' ? 'active bg-gradient-primary' : '' }}"
                     href="{{ route('message.index') }}">
-
-
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">message</i>
                     </div>
                     <span class="nav-link-text ms-1">Message</span>
                 </a>
-
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white {{ $activePage == 'video' ? 'active bg-gradient-primary' : '' }}"
+                    href="{{ route('video.index') }}">
+                    <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+                        <i class="material-icons opacity-10">subscriptions</i>
+                    </div>
+                    <span class="nav-link-text ms-1">Video</span>
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-white {{ $activePage == 'notifications' ? 'active bg-gradient-primary' : '' }}"
                     href="{{ route('notifications') }}">
-
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">notifications</i>
                     </div>
@@ -193,17 +190,15 @@
                 <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
             </li>
             <li class="nav-item">
-
                 <a class="nav-link text-white {{ $activePage == 'profile' ? 'active bg-gradient-primary' : '' }}"
                     href="{{ route('profile') }}">
-
-
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
                         <i class="material-icons opacity-10">person</i>
                     </div>
                     <span class="nav-link-text ms-1">Profile</span>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link text-white" href="{{ route('static-sign-in') }}">
                     <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
@@ -236,7 +231,6 @@
         <div class="mx-3">
             <a class="btn bg-gradient-primary w-100"
                 href="https://www.creative-tim.com/product/material-dashboard-pro-laravel" target="_blank"
-
                 type="button">Upgrade to pro</a>
 
 

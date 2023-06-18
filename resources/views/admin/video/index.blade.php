@@ -1,8 +1,8 @@
 <x-layout bodyClass="g-sidenav-show bg-gray-200">
-    <x-navbars.sidebar activePage="portfolio"></x-navbars.sidebar>
+    <x-navbars.sidebar activePage="video"></x-navbars.sidebar>
     <div class="main-content position-relative bg-gray-100 max-height-vh-100 h-100">
         <!-- Navbar -->
-        <x-navbars.navs.auth titlePage="Portfolio"></x-navbars.navs.auth>
+        <x-navbars.navs.auth titlePage="Video"></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
             <div class="row justify-content-center mt-4">
@@ -12,10 +12,10 @@
                         <div class="card-header pb-0 p-3">
                             <div class="row">
                                 <div class="col-md-8 d-flex align-items-center">
-                                    <h6 class="mb-0">Portfolio</h6>
+                                    <h6 class="mb-0">Video</h6>
                                 </div>
                                 <div class="col-md-4 text-end">
-                                    <a href="{{ route('portfolio.create') }}" class="btn btn-primary">Add Portfolio</a>
+                                    <a href="{{ route('video.create') }}" class="btn btn-primary">Add video</a>
                                 </div>
                             </div>
                         </div>
@@ -31,25 +31,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($portfolios as $portfolio)
+                                        @foreach ($videos as $video)
                                             <tr>
-                                                <td>{{ $portfolio->name }}</td>
-                                                <td>{{ ucwords(str_replace('-', ' ', $portfolio->section)) }}</td>
+                                                <td>{{ $video->name }}</td>
+                                                <td>{{ ucwords(str_replace('-', ' ', $video->section)) }}</td>
                                                 <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;"
-                                                    title="{{ $portfolio->link }}"><a href="{{ $portfolio->link }}"
-                                                        target=".blank">{{ $portfolio->link }}</a></td>
+                                                    title="{{ $video->link }}"><a href="{{ $video->link }}"
+                                                        target=".blank">{{ $video->link }}</a></td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="{{ route('portfolio.show', $portfolio) }}"
+                                                        <a href="{{ route('video.show', $video) }}"
                                                             class="btn btn-info me-2">View</a>
-                                                        <a href="{{ route('portfolio.edit', $portfolio) }}"
+                                                        <a href="{{ route('video.edit', $video) }}"
                                                             class="btn btn-primary me-2">Edit</a>
-                                                        <form action="{{ route('portfolio.destroy', $portfolio) }}"
+                                                        <form action="{{ route('video.destroy', $video) }}"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger"
-                                                                onclick="return confirm('Are you sure you want to delete this portfolio?')">Delete</button>
+                                                                onclick="return confirm('Are you sure you want to delete this video?')">Delete</button>
                                                         </form>
                                                     </div>
                                                 </td>
@@ -57,7 +57,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                {!! $portfolios->links('pagination::bootstrap-5') !!}
+                                {!! $videos->links('pagination::bootstrap-5') !!}
                             </div>
                         </div>
                     </div>

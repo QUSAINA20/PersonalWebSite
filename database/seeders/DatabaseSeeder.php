@@ -31,7 +31,8 @@ class DatabaseSeeder extends Seeder
         Achievement::factory(5)->create();
         Experience::factory(7)->create();
         Client::factory(7)->create();
-        $this->call(BiographySeeder::class);
+        Biography::factory()->create();
+
         $this->call(SpecializationSeeder::class);
     }
 }

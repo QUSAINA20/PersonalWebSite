@@ -27,6 +27,15 @@ use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\SpecializationController;
 use App\Http\Controllers\ExperienceController;
 use App\Http\Controllers\BiographyController;
+
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\VideoController;
+
+Route::prefix('admin')->middleware('auth')->group(function () {
+    
+
+
+
 use App\Http\Controllers\VideoController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
@@ -40,10 +49,12 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('video', VideoController::class);
     Route::resource('biography', BiographyController::class);
     Route::resource('specialization', SpecializationController::class);
+    Route::resource('clients', ClientController::class);
     Route::get('messages', [MessageController::class, 'index'])->name('message.index');
     Route::get('messages/{message}', [MessageController::class, 'show'])->name('message.show');
     Route::get('messages-search', [MessageController::class, 'index'])->name('message.search');
 });
+
 
 
 Route::get('/', function () {

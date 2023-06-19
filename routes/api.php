@@ -4,7 +4,7 @@ use App\Http\Controllers\Api\AchievementController;
 use App\Http\Controllers\Api\MessageController;
 
 use App\Http\Controllers\Api\BiographyController;
-
+use App\Http\Controllers\Api\ClientController;
 use App\Http\Controllers\Api\PortfolioController;
 use App\Http\Controllers\Api\ExperienceController;
 use App\Http\Controllers\Api\SpecializationController;
@@ -35,4 +35,8 @@ Route::get('biographies', [SpecializationController::class, 'index']);
 Route::post('send-message', [MessageController::class, 'store']);
 
 
+Route::get('clients', [ClientController::class, 'index']);
+
+
 Route::get('achievements', [AchievementController::class, 'index']);
+

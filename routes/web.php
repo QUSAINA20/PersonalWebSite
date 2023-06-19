@@ -39,12 +39,12 @@ use App\Http\Controllers\VideoController;
 
 
 Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::resource('experience', ExperienceController::class);
     Route::resource('achievement', AchievementController::class);
     Route::get('experience/softDelete/{id}', [ExperienceController::class, 'SoftDelete'])->name('experience.softDelete');
     Route::get('experience/trash', [ExperienceController::class, 'trashExperiences'])->name('experience.trash');
     Route::get('experience/trash/restore/{id}', [ExperienceController::class, 'restore'])->name('experience.restore');
     Route::get('experience/forceDelete/{id}', [ExperienceController::class, 'forceDelete'])->name('experience.forceDelete');
+    Route::resource('experience', ExperienceController::class);
     Route::resource('portfolio', PortfolioController::class);
     Route::resource('video', VideoController::class);
     Route::resource('biography', BiographyController::class);

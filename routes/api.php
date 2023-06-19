@@ -30,8 +30,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('portfolios', [PortfolioController::class, 'index']);
 Route::get('videos', [VideoController::class, 'index']);
 Route::get('experiences', [ExperienceController::class, 'index']);
-Route::get('biographies', [BiographyController::class, 'index']);
-Route::get('biographies', [SpecializationController::class, 'index']);
+Route::get('biographie', [BiographyController::class, 'index']);
+Route::get('specializations', [SpecializationController::class, 'index']);
 Route::post('send-message', [MessageController::class, 'store']);
 
 
@@ -39,4 +39,3 @@ Route::get('clients', [ClientController::class, 'index']);
 
 
 Route::get('achievements', [AchievementController::class, 'index']);
-

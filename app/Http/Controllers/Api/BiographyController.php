@@ -18,7 +18,8 @@ class BiographyController extends Controller
                 'biography' => $biography
             ]);
         }
-
+        $biography->image_url = $biography->getFirstMedia('images')->getUrl();
+        $biography->makeHidden('media');
         return response()->json([
             'message' => 'Biography retrieved successfully.',
             'biography' => $biography

@@ -16,8 +16,13 @@ class VideoFactory extends Factory
      */
     public function definition()
     {
+        $name = $this->faker->name;
+        $section = $this->faker->randomElement(['adobe-photoshop', 'adobe-illustrator', 'after-effect', 'adobe-xd']);
+        $link = $this->faker->url;
         return [
-            //
+            'name' => $name,
+            'section' => $section,
+            'link' => $link,
         ];
     }
 }

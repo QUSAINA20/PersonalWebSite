@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AchievementController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,33 +25,34 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\SpecializationController;
-
 use App\Http\Controllers\ExperienceController;
-
 use App\Http\Controllers\BiographyController;
+
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\VideoController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::resource('portfolio', PortfolioController::class);
- /****************************** Experience Route **************************************/
-    Route::get('experience/softDelete/{id}' , [ExperienceController::class , 'SoftDelete'])->name('experience.softDelete');
-    Route::get('experience/trash' , [ExperienceController::class , 'trashExperiences'])->name('experience.trash');
-    Route::get('experience/trash/restore/{id}' , [ExperienceController::class , 'restore'])->name('experience.restore');
-    Route::get('experience/forceDelete/{id}' , [ExperienceController::class , 'forceDelete'])->name('experience.forceDelete');
+    
 
+
+
+use App\Http\Controllers\VideoController;
+
+Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('experience', ExperienceController::class);
-
-    Route::resource('clients', ClientController::class);
-
+    Route::resource('achievement', AchievementController::class);
+    Route::get('experience/softDelete/{id}', [ExperienceController::class, 'SoftDelete'])->name('experience.softDelete');
+    Route::get('experience/trash', [ExperienceController::class, 'trashExperiences'])->name('experience.trash');
+    Route::get('experience/trash/restore/{id}', [ExperienceController::class, 'restore'])->name('experience.restore');
+    Route::get('experience/forceDelete/{id}', [ExperienceController::class, 'forceDelete'])->name('experience.forceDelete');
+    Route::resource('portfolio', PortfolioController::class);
+    Route::resource('video', VideoController::class);
     Route::resource('biography', BiographyController::class);
-
-    Route::resource('specials', SpecializationController::class);
-
-
+    Route::resource('specialization', SpecializationController::class);
+    Route::resource('clients', ClientController::class);
+    Route::get('messages', [MessageController::class, 'index'])->name('message.index');
     Route::get('messages/{message}', [MessageController::class, 'show'])->name('message.show');
-    Route::get('messages', [MessageController::class, 'index'])->name('message.search');
-    Route::get('messages-search', [MessageController::class, 'index'])->name('message.index');
-
+    Route::get('messages-search', [MessageController::class, 'index'])->name('message.search');
 });
 
 

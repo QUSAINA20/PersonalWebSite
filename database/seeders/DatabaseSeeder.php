@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Achievement;
 use App\Models\Biography;
 use App\Models\Client;
 use App\Models\Portfolio;
@@ -20,20 +21,23 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+        User::factory()->create([
+            'name' => 'Admin',
+            'email' => 'admin@material.com',
+            'password' => ('secret')
+        ]);
 
-        \App\Models\Specilizion::factory(20)->create();
-
-         User::factory()->create([
-             'name' => 'Admin',
-             'email' => 'admin@material.com',
-             'password' => ('secret')
-         ]);
         Portfolio::factory(5)->create();
-
+        Achievement::factory(5)->create();
         Experience::factory(7)->create();
 
-         $this->call(BiographySeeder::class);
+
+        
 
          Client::factory(7)->create();
+
+        $this->call(BiographySeeder::class);
+        $this->call(SpecializationSeeder::class);
+
     }
 }

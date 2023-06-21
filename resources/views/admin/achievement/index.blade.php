@@ -9,16 +9,19 @@
                 <div class="col-lg-12">
                     <!-- Change the column size to take up full width on all screens -->
                     <div class="card card-body mx-3 mx-md-4">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                                <h6 class="text-white mx-3"><strong> Add, Edit, Delete Achievement
+                                </h6>
+                            </div>
+                        </div>
                         <div class="card-header pb-0 p-3">
                             <div class="row">
                                 <div class="col-md-8 d-flex align-items-center">
-                                    <h6 class="mb-0">Achievement</h6>
                                 </div>
                                 <div class="col-md-4 text-end">
-                                    <a href="{{ route('achievement.create') }}" class="btn btn-primary me-2"
-                                        style="margin-bottom: 2rem;">Add New Achievement</a>
-                                    {{-- <a href="{{ route('experience.trash') }}"> <i class="material-icons opacity-10"
-                                            style="font-size: 40px; margin-bottom: 1rem;">delete_sweep</i></a> --}}
+                                    <a class="btn btn-primary" href="{{ route('achievement.create') }}"><i
+                                            class="material-icons text-sm">add</i>&nbsp;&nbsp;Add Achievement</a>
                                 </div>
                             </div>
                         </div>
@@ -36,23 +39,31 @@
                                     <tbody>
                                         @foreach ($achievements as $achievement)
                                             <tr>
-                                                <td>{{ $achievement->name }}</td>
+                                                <td>
+                                                    <a
+                                                        href="{{ route('achievement.show', $achievement) }}">{{ $achievement->name }}</a>
+                                                </td>
                                                 <td>{{ $achievement->date }}</td>
                                                 <td
                                                     style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
                                                     {{ $achievement->body }}</td>
                                                 <td>
                                                     <div class="d-flex">
-                                                        <a href="{{ route('achievement.show', $achievement) }}"
-                                                            class="btn btn-info me-2">View</a>
+
                                                         <a href="{{ route('achievement.edit', $achievement) }}"
-                                                            class="btn btn-primary me-2">Edit</a>
+                                                            class="btn btn-success me-2">
+                                                            <i class="material-icons">edit</i>
+                                                            <div class="ripple-container"></div>
+                                                        </a>
                                                         <form action="{{ route('achievement.destroy', $achievement) }}"
                                                             method="POST" class="d-inline">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="submit" class="btn btn-danger"
-                                                                onclick="return confirm('Are you sure you want to delete this achievement?')">Delete</button>
+                                                                onclick="return confirm('Are you sure you want to delete this achievement?')">
+                                                                <i class="material-icons">close</i>
+                                                                <div class="ripple-container"></div>
+                                                            </button>
                                                         </form>
 
                                                     </div>

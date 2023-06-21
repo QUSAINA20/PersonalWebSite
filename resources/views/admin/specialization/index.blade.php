@@ -123,9 +123,9 @@
                                                     </td>
 
 
-                                                    <td class="align-middle text-center text-sm">
-                                                        <p class="text-xs text-secondary mb-0"
-                                                            style="display: inline-block;white-space: normal">
+                                                    <td>
+                                                        <p
+                                                            style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;">
                                                             {{ $specialization->body }}
                                                         </p>
                                                     </td>

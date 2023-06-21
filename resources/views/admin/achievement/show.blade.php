@@ -22,20 +22,13 @@
 
                                 </div>
                                 <div class="col-md-4 text-end">
-                                    <a rel="tooltip" class="btn btn-success btn-link"
-                                        href="{{ route('achievement.edit', $achievement) }}">
-                                        <i class="material-icons">edit</i>
-                                        <div class="ripple-container"></div>
-                                    </a>
-                                    <form action="{{ route('achievement.destroy', $achievement) }}" method="POST"
-                                        class="d-inline">
+
+                                    <a href="{{ route('achievement.edit', $achievement) }}" class="btn btn-primary me-2">Edit</a>
+                                    <form action="{{ route('achievement.destroy', $achievement) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-link"
-                                            onclick="return confirm('Are you sure you want to delete this achievement?')">
-                                            <i class="material-icons">close</i>
-                                            <div class="ripple-container"></div>
-                                        </button>
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this achievement?')">Delete</button>
+
                                     </form>
                                 </div>
                             </div>
@@ -64,8 +57,7 @@
                             <div class="row">
 
                                 <div class="col-md-4 text-end">
-                                    <a href="{{ route('achievement.index') }}" class="btn btn-info me-2"
-                                        style="margin-left: 1000px">Back</a>
+                                    <a href="{{ route('achievement.index') }}" class="btn btn-info me-2" style="margin-left: 1000px">Back</a>
                                 </div>
                             </div>
                         </div>

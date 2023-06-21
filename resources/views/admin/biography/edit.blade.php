@@ -5,32 +5,53 @@
         <x-navbars.navs.auth titlePage="Edit Biography"></x-navbars.navs.auth>
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card card-body mx-3 mx-md-4 mt-4">
-                        <form method="POST" action="{{ route('biography.update', $biography) }}"
-                            enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="mb-3">
-                                <label class="form-label">Body</label>
-                                <textarea type="text" name="body" class="form-control border border-2 p-2"
-                                          id="body-texterea">{{ $biography->body }}</textarea>
-                                @error('body')
-                                    <p class="text-danger inputerror">{{ $message }}</p>
-                                @enderror
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-12">
+                    <!-- Change the column size to take up full width on all screens -->
+                    <div class="card card-body mx-3 mx-md-4">
+                        <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+                            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                                <h6 class="text-white mx-3"><strong> Edit the Biography
+                                </h6>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label">Image</label>
-                                <input type="file" name="image" class="form-control border border-2 p-2">
-                                @error('image')
-                                <p class="text-danger inputerror">{{ $message }}</p>
-                                @enderror
+                        </div>
+                        <div class="card-body p-3">
+                            <div class="table-responsive">
+                                <div class="card-body px-4 pt-2">
+                                    <div class="card">
+                                        <div class="card-body px-4 pt-2">
+                                            <div class="card-body px-4 pt-2">
+                                                <form method="POST"
+                                                    action="{{ route('biography.update', $biography) }}"
+                                                    enctype="multipart/form-data">
+                                                    @csrf
+                                                    @method('PUT')
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Body</label>
+                                                        <textarea type="text" name="body" class="form-control border border-2 p-2" id="body-texterea">{{ $biography->body }}</textarea>
+                                                        @error('body')
+                                                            <p class="text-danger inputerror">{{ $message }}</p>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Image</label>
+                                                        <input type="file" name="image"
+                                                            class="form-control border border-2 p-2">
+                                                        @error('image')
+                                                            <p class="text-danger inputerror">{{ $message }}</p>
+                                                        @enderror
+                                                    </div>
+                                                    <div class="text-center">
+                                                        <button type="submit"
+                                                            class="btn bg-gradient-dark mb-0">Update</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary">Update</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

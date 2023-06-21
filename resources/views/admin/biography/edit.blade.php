@@ -42,8 +42,10 @@
                                                         @enderror
                                                     </div>
                                                     <div class="text-center">
+                                                        <a href="{{ route('biography.index') }}"
+                                                            class="btn btn-info me-2">Back</a>
                                                         <button type="submit"
-                                                            class="btn bg-gradient-dark mb-0">Update</button>
+                                                            class="btn bg-gradient-dark ">Update</button>
                                                     </div>
                                                 </form>
                                             </div>

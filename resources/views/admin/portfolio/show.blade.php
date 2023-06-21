@@ -8,9 +8,6 @@
 
             <div class="row justify-content-center mt-4">
                 <div class="col-lg-6">
-
-
-
                     <div class="card">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
 

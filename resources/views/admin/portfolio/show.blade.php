@@ -6,6 +6,7 @@
         <!-- End Navbar -->
         <div class="container-fluid px-2 px-md-4">
             <div class="row justify-content-center mt-4">
+
                 <div class="col-lg-12">
                     <!-- Change the column size to take up full width on all screens -->
                     <div class="card card-body mx-3 mx-md-4">
@@ -55,6 +56,7 @@
                                     </div>
                                     <div class="card-header pb-0 p-3">
                                         <div class="row">
+
 
                                             <div class="col-md-4 text-end">
                                                 <a href="{{ route('portfolio.index') }}" class="btn btn-info me-2" style="margin-left: 450px">Back</a>

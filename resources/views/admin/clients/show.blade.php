@@ -18,6 +18,15 @@
                         </div>
                         <div class="card-body px-4 pt-2">
                             <p><strong>Name:</strong> {{ $client->name }}</p>
+                            <div class="d-flex">
+                                <a href="{{ route('clients.edit', $client) }}" class="btn btn-primary me-2">Edit</a>
+                                <form action="{{ route('clients.destroy', $client) }}" method="POST" class="d-inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger"
+                                        onclick="return confirm('Are you sure you want to delete this client?')">Delete</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>

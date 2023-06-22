@@ -59,7 +59,10 @@
                                     <p class="text-danger inputerror">{{ $message }}</p>
                                 @enderror
                             </div>
+
                             <div class="text-center">
+                                <a href="{{ route('portfolio.index') }}" class="btn btn-info"
+                                style="margin-left: 150px">Back</a>
                                 <button type="submit" class="btn btn-primary">Update</button>
                             </div>
                         </form>

@@ -8,12 +8,8 @@
 
             <div class="row justify-content-center mt-4">
                 <div class="col-lg-6">
-
-
-
                     <div class="card">
                         <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-
                             <a href="{{ $portfolio->link }}" class="d-block blur-shadow-image">
                                 <img src="{{ $portfolio->getFirstMedia('images')->getUrl() }}" alt="img-blur-shadow"
                                     class="img-fluid shadow border-radius-lg">
@@ -27,14 +23,23 @@
                             <p><strong>Section:</strong> {{ ucwords(str_replace('-', ' ', $portfolio->section)) }}</p>
                             <p><strong>Link:</strong> {{ $portfolio->link }}</p>
                             <a target=".blank" href="{{ $portfolio->link }}"
-                                class="btn bg-gradient-primary mt-3 mb-0">Read more</a>
+                                class="btn bg-gradient-dark mt-3 mb-0">Read more</a>
+                                <a target=".blank" href="{{ route('portfolio.edit', $portfolio) }}"
+                                class="btn bg-gradient-primary mt-3 mb-0">Edit</a>
+                                <a href="{{ route('portfolio.index') }}" class="btn btn-info mt-3 mb-0"
+                                style="margin-left: 150px">Back</a>
+                                <form action="{{ route('portfolio.destroy', $portfolio) }}" method="POST" class="d-inline" >
+                                    @csrf
+                                    @method('DELETE')
+                                <button type="submit" class="btn btn-danger mt-3 mb-0" onclick="return confirm('Are you sure you want to delete this portfolio?')">Delete</button>
+                            </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-        <x-footers.auth></x-footers.auth>
+    </div>
+    <x-footers.auth></x-footers.auth>
     </div>
     <x-plugins></x-plugins>
 </x-layout>

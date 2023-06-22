@@ -31,12 +31,10 @@ use App\Http\Controllers\BiographyController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\VideoController;
 
-Route::prefix('admin')->middleware('auth')->group(function () {
-    
+// Route::prefix('admin')->middleware('auth')->group(function () {
 
 
-
-use App\Http\Controllers\VideoController;
+// use App\Http\Controllers\VideoController;
 
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('experience', ExperienceController::class);

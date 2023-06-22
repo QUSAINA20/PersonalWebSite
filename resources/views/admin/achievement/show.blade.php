@@ -15,14 +15,11 @@
                                     <h6 class="mb-0">{{ $achievement->name }}</h6>
                                 </div>
                                 <div class="col-md-4 text-end">
-                                    <a href="{{ route('achievement.edit', $achievement) }}"
-                                        class="btn btn-primary me-2">Edit</a>
-                                    <form action="{{ route('achievement.destroy', $achievement) }}" method="POST"
-                                        class="d-inline">
+                                    <a href="{{ route('achievement.edit', $achievement) }}" class="btn btn-primary me-2">Edit</a>
+                                    <form action="{{ route('achievement.destroy', $achievement) }}" method="POST" class="d-inline">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"
-                                            onclick="return confirm('Are you sure you want to delete this achievement?')">Delete</button>
+                                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this achievement?')">Delete</button>
                                     </form>
                                 </div>
                             </div>
@@ -53,8 +50,7 @@
                             <div class="row">
 
                                 <div class="col-md-4 text-end">
-                                    <a href="{{ route('achievement.index') }}" class="btn btn-info me-2"
-                                        style="margin-left: 1000px">Back</a>
+                                    <a href="{{ route('achievement.index') }}" class="btn btn-info me-2" style="margin-left: 1000px">Back</a>
                                 </div>
                             </div>
                         </div>
